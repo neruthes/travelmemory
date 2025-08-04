@@ -18,6 +18,8 @@ case "$1" in
     *.typ )
         typst c --root . "$1" --input USE_NOTO=1
         pdf_path="${1/.typ/.pdf}"
+        pdftk "$pdf_path" attach_files "$1" output "$pdf_path.tmp_attachment.pdf"
+        mv "$pdf_path.tmp_attachment.pdf" "$pdf_path"
         if [[ -e "$pdf_path" ]]; then
             dirname "_dist/$pdf_path" | xargs mkdir -p &&
             mv "$pdf_path" "_dist/$pdf_path" &&

@@ -61,3 +61,12 @@
 ]
 
 
+
+
+#let makebackcover() = context [
+  #pagebreak()
+  #pagestyle.update("empty")
+  #v(1fr)
+  Copyright #sym.copyright; 2025 PROJECT TRAVELMEMORY, by Neruthes, et al. \
+  Released with the GNU GPL 2.0 license.
+]
